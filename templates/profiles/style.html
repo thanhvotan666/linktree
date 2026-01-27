@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Cài đặt giao diện{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow">
+
+    <h1 class="text-2xl font-semibold mb-6">
+        Cài đặt giao diện Profile
+    </h1>
+
+    <form method="post" class="space-y-5">
+        {% csrf_token %}
+
+        <!-- Theme -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                Theme
+            </label>
+            {{ form.theme }}
+        </div>
+
+        <!-- Background color -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                Màu nền
+            </label>
+            {{ form.background_color }}
+        </div>
+
+        <!-- Button color -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                Màu nút
+            </label>
+            {{ form.button_color }}
+        </div>
+
+        <!-- Button text color -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                Màu chữ nút
+            </label>
+            {{ form.button_text_color }}
+        </div>
+
+        <!-- Font -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                Font chữ
+            </label>
+            {{ form.font_family }}
+        </div>
+
+        <!-- Actions -->
+        <div class="flex justify-between items-center pt-4">
+            <a href="{% url 'public_profile' user.username %}"
+               class="text-sm text-gray-600 hover:underline">
+                ← Xem profile
+            </a>
+
+            <button type="submit"
+                    class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800">
+                Lưu thay đổi
+            </button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

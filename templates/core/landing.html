@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkTree Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom gradient background inspired by Linktree */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        /* Custom button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            transition: transform 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+
+<section class="min-h-screen flex items-center justify-center px-4">
+    <div class="text-center max-w-lg bg-white bg-opacity-90 backdrop-blur-md rounded-2xl shadow-2xl p-8 md:p-12">
+        <!-- Optional logo or icon -->
+        <div class="mb-6">
+            <svg class="w-16 h-16 mx-auto text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+            Tất cả liên kết của bạn - chỉ trong 1 trang
+        </h1>
+
+        <p class="text-gray-600 mb-8 text-lg">
+            Tạo trang Linktree cá nhân miễn phí bằng Django & Tailwind. Chia sẻ tất cả liên kết của bạn một cách dễ dàng và chuyên nghiệp.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="{% url 'register' %}"
+               class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-center shadow-lg">
+                Bắt đầu miễn phí
+            </a>
+
+            <a href="{% url 'login' %}"
+               class="btn-secondary px-8 py-4 rounded-full font-semibold text-center">
+                Đăng nhập
+            </a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

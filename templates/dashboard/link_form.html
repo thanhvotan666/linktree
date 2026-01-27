@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Link{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow">
+
+    <h2 class="text-xl font-semibold mb-6">
+        {% if form.instance.pk %}
+            Sửa link
+        {% else %}
+            Thêm link mới
+        {% endif %}
+    </h2>
+
+    <form method="post" class="space-y-5">
+        {% csrf_token %}
+
+        <!-- TITLE -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                Tiêu đề
+            </label>
+            <input
+                type="text"
+                name="title"
+                value="{{ form.title.value|default:'' }}"
+                class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                required
+            >
+            {% if form.title.errors %}
+                <p class="text-red-500 text-sm">
+                    {{ form.title.errors|striptags }}
+                </p>
+            {% endif %}
+        </div>
+
+        <!-- URL -->
+        <div>
+            <label class="block text-sm font-medium mb-1">
+                URL
+            </label>
+            <input
+                type="url"
+                name="url"
+                value="{{ form.url.value|default:'' }}"
+                class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder="https://example.com"
+                required
+            >
+            {% if form.url.errors %}
+                <p class="text-red-500 text-sm">
+                    {{ form.url.errors|striptags }}
+                </p>
+            {% endif %}
+        </div>
+
+        <!-- ACTIVE -->
+        <div class="flex items-center space-x-2">
+            <input
+                type="checkbox"
+                name="is_active"
+                {% if form.is_active.value %}checked{% endif %}
+                class="w-4 h-4 rounded border-gray-300"
+            >
+            <label class="text-sm">Hiển thị link</label>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="flex space-x-3 pt-2">
+            <button
+                type="submit"
+                class="bg-black text-white px-5 py-2 rounded-lg hover:bg-gray-800"
+            >
+                Lưu
+            </button>
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="px-5 py-2 border rounded-lg hover:bg-gray-50"
+            >
+                Hủy
+            </a>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
