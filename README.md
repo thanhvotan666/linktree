@@ -19,5 +19,3 @@ A web application inspired by Linktree, built with Django, allowing users to cre
 - Frontend: HTML, CSS, Tailwind CSS
 - Database: SQLite
 - Tools: Git, GitHub, VS Code
-
-## 📂 Project Structure
